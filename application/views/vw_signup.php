@@ -81,12 +81,13 @@
     $(document).on("submit","#signup",(e)=>{
         e.preventDefault();
         var toServer=new FormData();
-        toServer.append('username',$("#spusername").val());
-        toServer.append('indnum',$("#spindnum").val());
-        toServer.append('course',$("#spcoursename").val());
-        toServer.append('email',$("#spemail").val());
-        toServer.append('password',$("#sppassword").val());
-        fetch("<?php echo base_url('authenticate/signupuser');?>",{
+        toServer.append('firstname',$("#fname").val());
+        toServer.append('lastname',$("#lname").val());
+        toServer.append('district',$("#district").val());
+        toServer.append('town',$("#town").val());
+        toServer.append('email',$("#email").val());
+        toServer.append('password',$("#password").val());
+        fetch("<?php echo base_url('signup/addnewuser');?>",{
             method:'POST',
             body: toServer,
             mode: 'no-cors',
@@ -105,7 +106,7 @@
             if(data.result==true){
                 alert("Signup Success. You can Login Now");
                 if(data.url==null){
-                    location.href="<?php echo base_url('dashboard'); ?>";
+                    location.href="<?php echo base_url('login'); ?>";
                 }else{
                     location.href=data.url;
                 }
