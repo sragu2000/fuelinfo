@@ -12,8 +12,14 @@ class Home extends CI_Controller {
 			redirect("login");
 		}
 	}
-	public function index()
-	{
+	public function index(){
+		$this->load->view('vw_header.php');
 		$this->load->view('vw_home.php');
+		$this->load->view('vw_footer.php');
+	}
+	public function addPetrolInfo(){
+		$this->load->view('vw_header.php');
+		$this->load->view('vw_addpetrolinfo.php');
+		$this->load->view('vw_footer.php');
 	}
 }
