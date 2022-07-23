@@ -1,0 +1,1 @@
+<?php echo base_url("cities/cities-and-postalcode-by-district-min.json")?>
