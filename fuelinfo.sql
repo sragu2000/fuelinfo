@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 23, 2022 at 07:00 AM
+-- Generation Time: Jul 24, 2022 at 08:30 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -24,6 +24,35 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `petrolrecord`
+--
+
+CREATE TABLE `petrolrecord` (
+  `recordid` int(11) NOT NULL,
+  `provider` mediumtext NOT NULL,
+  `stationName` mediumtext NOT NULL,
+  `district` mediumtext NOT NULL,
+  `town` mediumtext NOT NULL,
+  `stationAddress` longtext NOT NULL,
+  `stationPhone` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `isBasedOnLastNumber` mediumtext NOT NULL,
+  `numberRange` mediumtext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `petrolrecord`
+--
+
+INSERT INTO `petrolrecord` (`recordid`, `provider`, `stationName`, `district`, `town`, `stationAddress`, `stationPhone`, `date`, `isBasedOnLastNumber`, `numberRange`) VALUES
+(1, 'ceypetco', 'Thirunelveli', 'Jaffna', 'Jaffna', 'Thirunelveli Station', 779900058, '2022-07-24', 'no', 'All'),
+(2, 'ceypetco', 'Chundikuli', 'Jaffna', 'Chundikuli', 'MPCS Station', 772116778, '2022-07-25', 'yes', '5-9'),
+(3, 'ceypetco', 'Kaithadi', 'Jaffna', 'Kaitadi', 'Kaithadi Station', 772116778, '2022-07-25', 'yes', '5-9'),
+(4, 'ceypetco', 'Jaffna Town', 'Jaffna', 'Jaffna', 'Stanly Road', 77568756, '2022-07-25', 'yes', '1-5');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `userinfo`
 --
 
@@ -34,20 +63,27 @@ CREATE TABLE `userinfo` (
   `district` mediumtext NOT NULL,
   `town` mediumtext NOT NULL,
   `email` longtext NOT NULL,
-  `password` longtext NOT NULL
+  `password` longtext NOT NULL,
+  `usertype` mediumtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `userinfo`
 --
 
-INSERT INTO `userinfo` (`fueluserid`, `firstname`, `lastname`, `district`, `town`, `email`, `password`) VALUES
-(1, 'Raguraj', 'Sivanantham', 'Jaffna', '40000', 'ragurajsivanantham@gmail.com', '$2y$10$au54zz9T.MQBy0lGfG38YebgQfnLzc0CeC7vk5.YCQMITtpaVc5t2'),
-(2, 'asd', 'sad', 'Ampara', '32350', 'admin@mail.com', '$2y$10$czBJIKbd2Ec4OQW3uN1I1u3G53UR15EXphTZuX.3ERh.mFn9MCzfi');
+INSERT INTO `userinfo` (`fueluserid`, `firstname`, `lastname`, `district`, `town`, `email`, `password`, `usertype`) VALUES
+(1, 'Raguraj', 'Sivanantham', 'Jaffna', 'Jaffna', 'admin@mail.com', '$2y$10$cPqej80HfMUTtMD3SLqwg..BsuO5sf33XLKUfQVdEQbfUvkv0b8ay', 'admin'),
+(3, 'Mathesh', 'Yogeswaran', 'Jaffna', 'Chundikuli', 'm@mail.com', '$2y$10$FFLQHke1ab0Fiazc3GHTRe1cfm1Z16/S1TfM29qHFR8W8.XTvZiki', 'user');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `petrolrecord`
+--
+ALTER TABLE `petrolrecord`
+  ADD PRIMARY KEY (`recordid`);
 
 --
 -- Indexes for table `userinfo`
@@ -60,10 +96,16 @@ ALTER TABLE `userinfo`
 --
 
 --
+-- AUTO_INCREMENT for table `petrolrecord`
+--
+ALTER TABLE `petrolrecord`
+  MODIFY `recordid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `userinfo`
 --
 ALTER TABLE `userinfo`
-  MODIFY `fueluserid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `fueluserid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
