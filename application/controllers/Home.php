@@ -14,13 +14,20 @@ class Home extends CI_Controller {
 		}
 	}
 	public function index(){
+		$arr=$this->Mdl_home->getTownAndDistrict();
 		$this->load->view('vw_header.php');
-		$this->load->view('vw_home.php');
+		if($_SESSION["fuelappusertype"]=="admin"){ $this->load->view("vw_admin.php"); }
+		$this->load->view('vw_home.php',$arr);
 		$this->load->view('vw_footer.php');
+
 	}
 
-	public function getPetrolDetails(){
-		$flag=$this->Mdl_home->getDetails();
+	public function getPetrolDetailsTown(){
+		$flag=$this->Mdl_home->getDetailsTown();
+		echo $flag;
+	}
+	public function getPetrolDetailsDistrict(){
+		$flag=$this->Mdl_home->getDetailsDistrict();
 		echo $flag;
 	}
 	

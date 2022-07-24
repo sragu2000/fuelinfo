@@ -12,12 +12,12 @@
         <input type="text" id="stationname" required class="form-control" placeholder="Petrol Station Name"><p></p>
         <input type="text" id="stationaddress" required class="form-control" placeholder="Petrol Station Address"><p></p>
         <select name="district" required id="district" class="form-control">
-            <option value="" disabled selected>Select your District</option>
+            <option value="" disabled selected>Select District</option>
         </select><p></p>
         <select name="town" required id="town" class="form-control">
-            <option value="" disabled selected>Select your Town</option>
+            <option value="" disabled selected>Select Town</option>
         </select><p></p>
-        <input type="text" id="phone" required class="form-control" placeholder="Petrol Station Phone"><p></p>
+        <input type="text" id="phone" class="form-control" placeholder="Petrol Station Phone (Optional)"><p></p>
         <input type="date" id="date" required class="form-control" placeholder="Date"><p></p>
         <select class="form-control" id="base" required>
             <option value="" selected>Is petrol distribution based on Last number ?</option>

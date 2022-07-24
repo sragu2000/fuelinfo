@@ -71,7 +71,7 @@
         .then(data => {
             if (Object.keys(data).length>0) {
                 data[$('#district').find(":selected").text()].forEach(function(item){
-                    var htmltext=`<option value="${item.code}">${item.city}</option>`;
+                    var htmltext=`<option value="${item.city}">${item.city}</option>`;
                     $("#town").append(htmltext)
                 });
             }
