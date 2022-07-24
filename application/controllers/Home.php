@@ -8,6 +8,7 @@ class Home extends CI_Controller {
 		header("Access-Control-Allow-Headers: Content-Type, Content-Length, Accept-Encoding");
 		parent::__construct();
 		$this->load->model('Mdl_login');
+		$this->load->model('Mdl_home');
 		if(! $this->Mdl_login->sessionCheck()){
 			redirect("login");
 		}
@@ -16,6 +17,11 @@ class Home extends CI_Controller {
 		$this->load->view('vw_header.php');
 		$this->load->view('vw_home.php');
 		$this->load->view('vw_footer.php');
+	}
+
+	public function getPetrolDetails(){
+		$flag=$this->Mdl_home->getDetails();
+		echo $flag;
 	}
 	
 }
