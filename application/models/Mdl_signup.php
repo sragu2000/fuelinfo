@@ -8,6 +8,7 @@ class Mdl_signup extends CI_Model {
 		$arr["district"]=$this->input->post('district');
 		$arr["town"]=$this->input->post('town');
 		$arr["email"]=$this->input->post('email');
+		$arr["usertype"]="user";
 		$arr["password"]=password_hash($this->input->post('password'),PASSWORD_DEFAULT);
         $email=$this->input->post('email');
         if($this->db->query("SELECT * FROM userinfo WHERE email='$email'")->num_rows()>0){

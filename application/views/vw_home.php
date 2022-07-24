@@ -9,13 +9,7 @@
         <img src="<?php echo base_url('images\station.png') ?>" height="200" alt="logo"><p></p>
     </center>
     <div class="row">
-        <div class="col-sm-6 p-2">
-            <a href="<?php echo base_url('home\addPetrolInfo')?>" class="btn btn-outline-danger btn-lg form-control">
-                <i class="fa-solid fa-gas-pump"></i> &nbsp;&nbsp;
-                Add Petrol Information
-            </a> 
-        </div>
-        <div class="col-sm-6 p-2">
+        <div class="col-sm-12 p-2">
             <a href="<?php echo base_url('logout')?>" class="btn btn-outline-warning btn-lg form-control">
                 <i class="fa-solid fa-right-from-bracket"></i> &nbsp;&nbsp;
                 Logout

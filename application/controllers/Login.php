@@ -19,6 +19,11 @@ class Login extends CI_Controller {
 		$flag=$this->Mdl_login->validateLogin();
 		if($flag["result"]){
 			$this->session->set_userdata("fuelappcurrentuser",$this->input->post('email'));
+			if($flag["usertype"]=="admin"){
+				$this->session->set_userdata("fuelappusertype","admin");
+			}else{
+				$this->session->set_userdata("fuelappusertype","user");
+			}
 		}
 		$this->sendJson(array("message"=>$flag["message"],"result"=>$flag["result"]));
 	}

@@ -9,7 +9,8 @@ class Mdl_login extends CI_Model {
         if($this->db->query("SELECT * FROM userinfo WHERE email='$email'")->num_rows()>0){
             $passwordHash=$this->db->query("Select password from userinfo where email='$email'")->first_row()->password;
             if(password_verify($arr["password"], $passwordHash)){
-                return array("message"=>"Login Success","result"=>true);
+                $usertype=$this->db->query("Select usertype from userinfo where email='$email'")->first_row()->usertype;
+                return array("message"=>"Login Success","result"=>true,"usertype"=>$usertype);
             }else{
                 return array("message"=>"Email or Password is Wrong","result"=>false);
             }
