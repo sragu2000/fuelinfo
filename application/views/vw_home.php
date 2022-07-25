@@ -5,6 +5,7 @@
     }
 </style>
 <div class="container">
+    
     <div class="form-control">
         <h5>Hello, <?php echo $name; ?></h5>
     </div>&nbsp;
@@ -27,11 +28,7 @@
             Petrol available in <?php echo $town; ?> Town
         </div>
         <div class="card-body" id="#petrolavailabletown">
-            <table class="table table-bordered table-striped table-responsive-stack text-wrap" id="tableOne">
-                <tbody id="towntablebody" class="text-wrap">
-                    
-                </tbody>
-            </table>
+            <div id="towntablebody"></div>
         </div>
     </div><br>
     <div class="card border border-dark">
@@ -39,11 +36,7 @@
             Petrol available in <?php echo $district; ?> District
         </div>
         <div class="card-body" id="#petrolavailabledistrict">
-            <table class="table table-bordered table-striped table-responsive-stack text-wrap" id="tableTwo">
-                <tbody id="Districttablebody" class="text-wrap">
-                    
-                </tbody>
-            </table>
+            <div id="Districttablebody"></div>
         </div>
     </div>
     <br><br>
@@ -104,15 +97,22 @@
                         val="Not Number Based";
                     }
                     var htmlText=`
-                        <tr>
-                            <td>${item.provider}</td>
-                            <td>${item.stationName}</td>
-                            <td>${item.stationAddress}</td>
-                            <td>${item.date}</td>
-                            <td>${val}</td>
-                            <td>${item.nprange}</td>
-                            <td>${item.stationPhone}</td>
-                        </tr>
+                        <p>
+                            <button class="text-start btn form-control border border-dark" type="button" data-bs-toggle="collapse" data-bs-target="#reci${item.id}" aria-expanded="false" aria-controls="collapseExample">
+                            ${item.stationName} | ${item.stationAddress} | ${item.date}
+                            </button>
+                        </p>
+                        <div class="collapse" id="reci${item.id}">
+                            <div class="card card-body">
+                                Station Name: ${item.stationName}<p></p>
+                                Station Address: ${item.stationAddress}<p></p>
+                                Distribution Date: ${item.date}<p></p>
+                                Petrol Provider: ${item.provider}<p></p>
+                                Distribution Method: ${val}<p></p>
+                                Range: ${item.nprange}<p></p>
+                                Station Phone: ${item.stationPhone}<p></p>
+                            </div>
+                        </div>
                     `;
                     $("#towntablebody").append(htmlText);
                 });
@@ -137,16 +137,23 @@
                         val="Not Number Based";
                     }
                     var htmlText=`
-                        <tr>
-                            <td>${item.provider}</td>
-                            <td>${item.stationName}</td>
-                            <td>${item.stationAddress}</td>
-                            <td>${item.town}</td>
-                            <td>${item.date}</td>
-                            <td>${val}</td>
-                            <td>${item.nprange}</td>
-                            <td>${item.stationPhone}</td>
-                        </tr>
+                        <p>
+                            <button class="text-start btn form-control border border-dark" type="button" data-bs-toggle="collapse" data-bs-target="#reci${item.id}" aria-expanded="false" aria-controls="collapseExample">
+                            ${item.stationName} | ${item.stationAddress} | ${item.date}
+                            </button>
+                        </p>
+                        <div class="collapse" id="reci${item.id}">
+                            <div class="card card-body">
+                                Station Name: ${item.stationName}<p></p>
+                                Station Address: ${item.stationAddress}<p></p>
+                                Distribution Date: ${item.date}<p></p>
+                                Petrol Provider: ${item.provider}<p></p>
+                                Town: ${item.town}<p></p>
+                                Distribution Method: ${val}<p></p>
+                                Range: ${item.nprange}<p></p>
+                                Station Phone: ${item.stationPhone}<p></p>
+                            </div>
+                        </div>
                     `;
                     $("#Districttablebody").append(htmlText);
                 });

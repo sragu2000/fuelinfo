@@ -6,8 +6,8 @@
     <form id="info" method="post">
         <select class="form-control" name="provider" id="provider" required>
             <option value="" selected>Select Station Type</option>
-            <option value="ceypetco">Ceypetco</option>
-            <option value="ceypetco">Lanka IOC</option>
+            <option value="Ceypetco">Ceypetco</option>
+            <option value="Lanka IOC">Lanka IOC</option>
         </select><p></p>
         <input type="text" name="stationname" id="stationname" required class="form-control" placeholder="Petrol Station Name"><p></p>
         <input type="text" name="stationaddress" id="stationaddress" required class="form-control" placeholder="Petrol Station Address"><p></p>
