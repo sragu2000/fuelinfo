@@ -39,7 +39,7 @@
             </div>  
         </div>
         </form><br>
-        <a href="" id="forgot" class="btn btn-outline-warning btn-lg form-control">Forgot Password ? </a> <br><br>
+        <a href="<?php echo base_url('/forgotpassword');?>" id="forgot" class="btn btn-outline-warning btn-lg form-control">Forgot Password ? </a> <br><br>
         <a href="<?php echo base_url('/signup');?>" class="btn form-control btn-lg btn-outline-primary">Signup here</a>
         <!-- Login End --><br><br>
     </div>
