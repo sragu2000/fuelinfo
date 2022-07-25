@@ -4,22 +4,22 @@
 </center>
 <div class="container">
     <form id="info" method="post">
-        <select class="form-control" id="provider" required>
+        <select class="form-control" name="provider" id="provider" required>
             <option value="" selected>Select Station Type</option>
             <option value="ceypetco">Ceypetco</option>
             <option value="ceypetco">Lanka IOC</option>
         </select><p></p>
-        <input type="text" id="stationname" required class="form-control" placeholder="Petrol Station Name"><p></p>
-        <input type="text" id="stationaddress" required class="form-control" placeholder="Petrol Station Address"><p></p>
+        <input type="text" name="stationname" id="stationname" required class="form-control" placeholder="Petrol Station Name"><p></p>
+        <input type="text" name="stationaddress" id="stationaddress" required class="form-control" placeholder="Petrol Station Address"><p></p>
         <select name="district" required id="district" class="form-control">
             <option value="" disabled selected>Select District</option>
         </select><p></p>
         <select name="town" required id="town" class="form-control">
             <option value="" disabled selected>Select Town</option>
         </select><p></p>
-        <input type="text" id="phone" class="form-control" placeholder="Petrol Station Phone (Optional)"><p></p>
-        <input type="date" id="date" required class="form-control" placeholder="Date"><p></p>
-        <select class="form-control" id="base" required>
+        <input type="text" name="phone" id="phone" class="form-control" placeholder="Petrol Station Phone (Optional)"><p></p>
+        <input type="date" name="date" id="date" required class="form-control" placeholder="Date"><p></p>
+        <select class="form-control" name="base" id="base" required>
             <option value="" selected>Is petrol distribution based on Last number ?</option>
             <option value="yes">Yes</option>
             <option value="no">No</option>
@@ -82,10 +82,10 @@
     $(document).on("change","#base",(e)=>{
         document.getElementById("vehiclenumber").innerHTML="";
         if($("#base").val()=="yes"){
-            htmltext=`<input type="text" class="form-control" id="lastnumber" placeholder="Last number range"><p></p>`;
+            htmltext=`<input type="text" class="form-control" name="lastnumber" id="lastnumber" placeholder="Last number range"><p></p>`;
             $("#vehiclenumber").append(htmltext);
         }else{
-            htmltext=`<input type="text" class="form-control" id="lastnumber" value="All" disabled><p></p>`;
+            htmltext=`<input type="text" class="form-control" name="lastnumber" id="lastnumber" value="All" disabled><p></p>`;
             $("#vehiclenumber").append(htmltext);
         }
     });
@@ -121,7 +121,7 @@
             })
             .catch((e) => {
                 console.log(e);
-                alert("Reloading");
+                alert(e);
             });
         })
 </script>

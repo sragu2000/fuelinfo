@@ -30,8 +30,22 @@ class Admin extends CI_Controller {
 	}
 
 	public function addPetrolRecord(){
-		$flag=$this->Mdl_admin->addPetrolRecord();
-		$this->sendJson(array("message"=>$flag["message"],"result"=>$flag["result"]));
+		$this->form_validation->set_rules('provider', 'Provider Name', 'required');
+		$this->form_validation->set_rules('stationname', 'Station Name', 'required');
+		$this->form_validation->set_rules('stationaddress', 'Station Address', 'required');
+		$this->form_validation->set_rules('district', 'District', 'required');
+		$this->form_validation->set_rules('town', 'Town', 'required');
+		$this->form_validation->set_rules('phone', 'Phone', 'required|integer');
+		$this->form_validation->set_rules('date', 'Date', 'required');
+		$this->form_validation->set_rules('base', 'Based On', 'required');
+		$this->form_validation->set_rules('lastnumber', 'Number Range', 'required');
+		if($this->form_validation->run() == TRUE){
+			$flag=$this->Mdl_admin->addPetrolRecord();
+			$this->sendJson(array("message"=>$flag["message"],"result"=>$flag["result"]));
+		}else{
+			$this->sendJson(array("message"=>strip_tags(validation_errors()),"result"=>false));
+		}
+		
 	}
 	private function sendJson($data) {
 		$this->output->set_header('Content-Type: application/json; charset=utf-8')->set_output(json_encode($data));
