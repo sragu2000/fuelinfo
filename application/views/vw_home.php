@@ -103,7 +103,7 @@
                             </button>
                         </p>
                         <div class="collapse" id="reci${item.id}">
-                            <div class="card card-body">
+                            <div class="card card-body bg-light">
                                 Station Name: ${item.stationName}<p></p>
                                 Station Address: ${item.stationAddress}<p></p>
                                 Distribution Date: ${item.date}<p></p>
@@ -143,7 +143,7 @@
                             </button>
                         </p>
                         <div class="collapse" id="reci${item.id}">
-                            <div class="card card-body">
+                            <div class="card card-body bg-light">
                                 Station Name: ${item.stationName}<p></p>
                                 Station Address: ${item.stationAddress}<p></p>
                                 Distribution Date: ${item.date}<p></p>
@@ -153,6 +153,7 @@
                                 Range: ${item.nprange}<p></p>
                                 Station Phone: ${item.stationPhone}<p></p>
                             </div>
+                            <br>
                         </div>
                     `;
                     $("#Districttablebody").append(htmlText);
