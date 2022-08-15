@@ -34,7 +34,7 @@
                 alert(data.message);
                 document.getElementById("messageid").innerHTML = data.message
                 if(data.result==true){
-                    location.href="<?php echo base_url('authenticate'); ?>"
+                    location.href="<?php echo base_url('login'); ?>"
                 }
             })
             .catch(() => {
